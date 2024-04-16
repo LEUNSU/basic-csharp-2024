@@ -275,5 +275,32 @@
     - WYSIWYG(What You See Is What You Get) 방식의 GUI 프로그램 개발
 
 ## 4일차
-- WBF
+- 윈폼 UI 개발
+    - Winforms로 윈폼 개발 학습
+    - 컨트롤 Prefix(거의 영문자 3단어)
+        - ComboBox : Cbo-
+        - CheckBox : Chk-
+        - RadioButton : Rdo-
+        - TextBox : Txt-
+        - Button : Btn-
+        - TrackBar : Trb-
+        - ProgressBar : Prg-
+        - TreeView : Trv-
+        - ListView : Lsv-
+        - PictureBox : Pic-
+        - *Dialog : Dlg-
+
+## 5일차
+- 윈폼 UI 개발(계속)
+    - 스레드 추가
+    - 파일 입출력 추가
+    - 비동기 작업
+    - 윈도우 탐색기 앱
+    - 도서관리 앱 with SQL Server
+    - ModernUI 앱
+    - 국가교통정보센터 CCTV뷰 앱
+    - IoT Dummy 앱 with SQL Server
+
+
 - 예제 프로젝트
+- WBF
