@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.Threading; // 스레드 클래스 사용등록
 namespace ex18_winControlApp
 {
     public partial class FrmMain : Form
@@ -9,6 +11,8 @@ namespace ex18_winControlApp
 
             LsvDummy.Columns.Add("이름");
             LsvDummy.Columns.Add("깊이");
+
+            GrbEditor.Text = "텍스트에디터";
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -89,6 +93,7 @@ namespace ex18_winControlApp
             FrmModal.Width = 300;
             FrmModal.Height = 100;
             FrmModal.BackColor = Color.Red;
+            FrmModal.StartPosition = FormStartPosition.CenterParent;
             FrmModal.ShowDialog(); // 모달창 띄우기
         }
 
@@ -99,7 +104,11 @@ namespace ex18_winControlApp
             FrmModaless.Width = 300;
             FrmModaless.Height = 100;
             FrmModaless.BackColor = Color.Green;
-            FrmModaless.Show(); // 모달리스창 띄우기
+            // 모달리스창을 부모 정중앙에 위치할 때는 아래와 같이 작업해야 함
+            FrmModaless.StartPosition = FormStartPosition.Manual;
+            FrmModaless.Location = new Point(this.Location.X + (this.Width - FrmModaless.Width) / 2,
+                                             this.Location.Y + (this.Height - FrmModaless.Height) / 2);
+            FrmModaless.Show(this); // 모달리스창 띄우기
         }
 
         private void BtnMsgBox_Click(object sender, EventArgs e)
@@ -166,10 +175,140 @@ namespace ex18_winControlApp
             if (PicNormal.SizeMode == PictureBoxSizeMode.Normal)
             {
                 PicNormal.SizeMode = PictureBoxSizeMode.StretchImage;
-            }else 
+            }
+            else
             {
                 PicNormal.SizeMode = PictureBoxSizeMode.Normal;
             }
         }
+
+        // 일반텍스트파일 로드 이벤트핸들러
+        private void BtnFileLoad_Click(object sender, EventArgs e)
+        {
+            // OpenFileDialog 컨트롤을 디자인에서 구성하지 않고 생성하는 방법
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false; // 여러개 파일 선택을 금지
+            dialog.Filter = "Text Files(*.txt;*.cs;*.py)|*.txt;*.cs;*.py";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // UTF-8이 한글이 깨짐. EUC-KR(Window949), UTF-8(BOM)은 한글이 문제 없음.
+                RtxEditor.LoadFile(dialog.FileName, RichTextBoxStreamType.PlainText);
+            }
+        }
+
+        // 리치텍스트파일 저장 이벤트핸들러
+        private void BtnFileSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "RichText Files(*.rtf)|*.rtf";
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                RtxEditor.SaveFile(dialog.FileName, RichTextBoxStreamType.RichNoOleObjs);
+            }
+        }
+
+        private void BtnNothread_Click(object sender, EventArgs e)
+        {
+            // 프로그레스바 설정
+            var maxValue = 100;
+            var currValue = 0;
+            PrgProcess.Minimum = 0;
+            PrgProcess.Maximum = maxValue;
+            PrgProcess.Value = 0; // 0으로 초기화
+
+            BtnThread.Enabled = false;
+            BtnNothread.Enabled = false;
+            BtnStop.Enabled = true;
+
+            // 반복 시작
+            for (var i = 0; i < maxValue; i++)
+            {
+                // 내부적으로 복잡하고 시간을 많이 요하는 작업
+                currValue = i;
+                PrgProcess.Value = currValue;
+                TxtLog.AppendText($"현재진행 : {currValue}\r\n");
+                Thread.Sleep(500); // 1000ms = 1초, 500ms = 0.5초
+            }
+
+            BtnThread.Enabled = BtnThread.Enabled = true;
+            BtnStop.Enabled = false;
+        }
+
+        private void BtnThread_Click(object sender, EventArgs e)
+        {
+            var maxValue = 100;
+            PrgProcess.Minimum = 0;
+            PrgProcess.Maximum = maxValue;
+            PrgProcess.Value = 0; // 0으로 초기화
+            
+            BtnThread.Enabled = BtnNothread.Enabled = false;
+            BtnStop.Enabled = true;
+
+            BgwProgress.WorkerReportsProgress = true; // 진행사항 리포트 활성화
+            BgwProgress.WorkerSupportsCancellation = true; // 백그라운드워커 취소 활성화
+            BgwProgress.RunWorkerAsync(null); // 백그라운드워커 실행
+        }
+
+        private void BtnStop_Click(object sender, EventArgs e)
+        {
+            BgwProgress.CancelAsync(); // 비동기로 취소 실행
+        }
+
+        #region '백그라운드워커 이벤트핸들러'
+
+        private void DoRealWork(BackgroundWorker worker, DoWorkEventArgs e)
+        {
+            var maxValue = 100;
+            double currValue = 0; // 실수형으로 설정
+            
+            for (var i = 0; i <= maxValue; i++)
+            {
+                if (worker.CancellationPending) // 중간에 취소할건지 물어보는 것
+                {
+                    e.Cancel = true;
+                    break;
+                }
+                else
+                {
+                    currValue = i;
+                    // 오랜 시간이 걸리는 일 처리
+                    Thread.Sleep(500);
+
+                    // 아래를 실행하면, BgwProgress_ProgressChanged 이벤트핸들러의 
+                    // ProgressChangedEventArgs내의 ProgressPercentage 속성에 값이 들어감.
+                    worker.ReportProgress((int)((currValue / maxValue) * 100));
+                }
+            }
+        }
+
+        // 일을 진행
+        private void BgwProgress_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            DoRealWork((BackgroundWorker)sender, e);
+            e.Result = null;
+        }
+
+        // 진행상태 바뀌는 것 표시
+        private void BgwProgress_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            PrgProcess.Value = e.ProgressPercentage;
+            TxtLog.AppendText($"진행률 : {PrgProcess.Value}%\r\n");
+        }
+
+        // 진행이 완료되면 그 이후 처리
+        private void BgwProgress_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                TxtLog.AppendText($"작업이 취소되었습니다.\r\n");
+            }
+            else
+            {
+                TxtLog.AppendText($"작업이 완료되었습니다.\r\n");
+            }
+            BtnThread.Enabled = BtnNothread.Enabled = true;
+            BtnStop.Enabled = false;
+        }
+        #endregion
     }
 }
