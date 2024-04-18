@@ -312,13 +312,24 @@
 
 ## 6일차
 - 예제 프로젝트
-    - 윈도우 탐색기 앱
-    - 도서관리 앱 with SQL Server
-    - ModernUI 앱
-    - 국가교통정보센터 CCTV뷰 앱
-    - IoT Dummy 앱 with SQL Server
+    - 윈도우 탐색기 앱(컨트롤학습)
+        - My Explorer 프로젝트 생성
+        - 아이콘 검색(flaticon.com), png 2 ico 구글링 웹사이트
+        - 트리 뷰, 리스트 뷰 기능 추가
+        
+        ![중간결과](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs005.png) 
 
-## 개인 포트폴리오
+        - 미적용 - 컨텍스트 메뉴 보기 기능, 더블 클릭 프로그램 실행, ...
+
+## 7일차
+- 토이 프로젝트
+    - 윈도우 탐색기 앱 종료
+    - ModernUI 앱(UI 디자인)
+    - 도서관리 앱 with SQL Server(Base)
+    - 국가교통정보센터 CCTV뷰 앱(OpenAPI, NuGet dll, Network)
+    - IoT Dummy 앱 with SQL Server(IoT, DB)
+
+## 개인 토이프로젝트
 - 심플 메모장 앱
     - 기능 ...
     - 특징 ...
