@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookRentalShopAPP", "BookRentalShopAPP\BookRentalShopAPP.csproj", "{21515C41-6817-4CC1-8D24-159ED82BEEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookRentalShopApp", "NewBookRentalShopApp\NewBookRentalShopApp.csproj", "{D07FF655-7BCF-493D-BBAD-892F1EA90B7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21515C41-6817-4CC1-8D24-159ED82BEEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21515C41-6817-4CC1-8D24-159ED82BEEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21515C41-6817-4CC1-8D24-159ED82BEEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21515C41-6817-4CC1-8D24-159ED82BEEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07FF655-7BCF-493D-BBAD-892F1EA90B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07FF655-7BCF-493D-BBAD-892F1EA90B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07FF655-7BCF-493D-BBAD-892F1EA90B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07FF655-7BCF-493D-BBAD-892F1EA90B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69640B74-BE7E-4E07-AAC4-57C2D895ACD6}
+	EndGlobalSection
+EndGlobal
