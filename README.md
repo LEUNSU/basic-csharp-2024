@@ -327,6 +327,8 @@
         - 실행결과
 
 
+https://github.com/LEUNSU/basic-csharp-2024/assets/158007401/9dfa6223-d4d8-4d58-9041-0e88f77328e4
+
 
     - 도서관리 앱 with SQL Server(Base) ModernUI(NuGet패키지)
 
