@@ -326,7 +326,6 @@
     - 윈도우 탐색기 앱 종료
         - 실행결과
 
-
 https://github.com/LEUNSU/basic-csharp-2024/assets/158007401/9dfa6223-d4d8-4d58-9041-0e88f77328e4
 
 
