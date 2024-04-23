@@ -132,6 +132,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="books.ico" />
+    <None Include="imgs\rental.ico" />
+    <None Include="imgs\member.ico" />
+    <None Include="imgs\login.ico" />
+    <None Include="imgs\division.ico" />
+    <None Include="imgs\book.ico" />
     <None Include="imgs\rental.png" />
     <None Include="imgs\member.png" />
     <None Include="imgs\book.png" />
