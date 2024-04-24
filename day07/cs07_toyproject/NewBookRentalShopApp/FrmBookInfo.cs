@@ -29,10 +29,10 @@ namespace NewBookRentalShopApp
         {
             RefreshData(); // bookstbl에서 데이터를 가져오는 부분
             // 콤보박스에 들어가는 데이터를 초기화
-            InitExitData(); // 콤보박스, 날짜, NumericUpDown 컨트롤 데이터, 초기화
+            InitInputData(); // 콤보박스, 날짜, NumericUpDown 컨트롤 데이터, 초기화
         }
 
-        private void InitExitData()
+        private void InitInputData()
         {
             try
             {
@@ -294,6 +294,13 @@ namespace NewBookRentalShopApp
 
                 isNew = false; // UPDATE
             }
+        }
+
+        // 숫자만 입력되도록 처리
+        private void TxtIsbn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
