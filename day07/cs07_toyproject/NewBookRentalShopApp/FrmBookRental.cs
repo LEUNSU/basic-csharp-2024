@@ -190,7 +190,7 @@ namespace NewBookRentalShopApp
                 TxtBookIdx.Text = selData.Cells[3].Value.ToString(); // 책순번
                 TxtBookNames.Text = selData.Cells[4].Value.ToString(); // 책제목
                 DtpRentalDate.Value = DateTime.Parse(selData.Cells[5].Value.ToString()); // 대출일
-                DtpReturnDate.Value = string.IsNullOrEmpty(selData.Cells[6].ToString()) ?
+                DtpReturnDate.Value = !string.IsNullOrEmpty(selData.Cells[6].ToString()) ?
                                         DateTime.Parse(selData.Cells[6].Value.ToString()):
                                         DateTime.Parse("1800-01-01"); // 1800-01-01는 반납 안 한 것
 
