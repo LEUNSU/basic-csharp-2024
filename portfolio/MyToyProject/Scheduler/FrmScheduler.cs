@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Scheduler
 {
     public partial class FrmScheduler : Form
@@ -209,6 +211,31 @@ namespace Scheduler
                     ScheduleList.SelectedRows[0].Cells[1].Value = true;
             }
         }
+/* ¼öÁ¤
+        private void ScheduleList_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (ScheduleList.IsCurrentCellDirty)
+            {
+                ScheduleList.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void ScheduleList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ScheduleList.Columns[e.ColumnIndex].Name == "CheckBoxes")
+            {
+                DataGridViewDisableButtonCell buttonCell =
+                    (DataGridViewDisableButtonCell)ScheduleList.
+                    Rows[e.RowIndex].Cells["Buttons"];
+
+                DataGridViewCheckBoxCell checkCell =
+                    (DataGridViewCheckBoxCell)ScheduleList.
+                    Rows[e.RowIndex].Cells["CheckBoxes"];
+                buttonCell.Enabled = !(bool)checkCell.Value;
+
+                ScheduleList.Invalidate();
+            }
+        }*/
     }
 }
 

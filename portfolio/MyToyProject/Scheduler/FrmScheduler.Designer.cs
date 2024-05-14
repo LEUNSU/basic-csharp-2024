@@ -71,6 +71,8 @@
             ScheduleList.Size = new Size(249, 174);
             ScheduleList.TabIndex = 7;
             ScheduleList.CellClick += ScheduleList_CellClick;
+            ScheduleList.CellValueChanged += ScheduleList_CellValueChanged;
+            ScheduleList.CurrentCellDirtyStateChanged += ScheduleList_CurrentCellDirtyStateChanged;
             // 
             // ColContent
             // 
