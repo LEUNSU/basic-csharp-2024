@@ -359,11 +359,6 @@
     
     ![책대여프로그램](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs006.png) 
 
-## 나머지
-- Pending        
-    - IoT Dummy 앱 with SQL Server(IoT, DB)
-    - 국가교통정보센터 CCTV뷰 앱(OpenAPI, NuGet dll, Network, UI 디자인, 비동기메서드)
-
 ## WinForm 개인프로젝트 (아직 한참 미완성)
 - 스케줄관리 앱
 
