@@ -359,8 +359,8 @@
     
     ![책대여프로그램](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs006.png) 
 
-## WinForm 개인프로젝트 (아직 한참 미완성)
-- 스케줄관리 앱
+## WinForm 개인프로젝트
+- 스케줄관리 앱 (아직 한참 미완성)
 
     ![실행화면](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs007.png)
 
