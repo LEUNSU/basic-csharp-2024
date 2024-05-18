@@ -365,8 +365,9 @@
     - 국가교통정보센터 CCTV뷰 앱(OpenAPI, NuGet dll, Network, UI 디자인, 비동기메서드)
 
 ## WinForm 개인프로젝트 (아직 한참 미완성)
+- 스케줄관리 앱
 
-    ![실행화면](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs007.png)
+![실행화면](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs007.png)
 
     1. 기능 
         - 날짜를 클릭한 후, 일정을 입력하고 저장 / 잘못 입력했을 때 삭제
