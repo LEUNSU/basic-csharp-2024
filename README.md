@@ -361,7 +361,6 @@
 
 ## WinForm 개인프로젝트
 **스케줄관리 앱** 
-- 아직한참미완성
     ![실행화면](https://raw.githubusercontent.com/LEUNSU/basic-csharp-2024/main/images/cs007.png)
 
 - 기능 
@@ -377,4 +376,4 @@
     - DateTimePicker와 MonthCalendar를 연동시켜 둘 중 하나로 날짜를 지정해도 같이 작동
 
 - 배운 점 
-    - 너무 어렵다 .. 아직 한참 멀었 .. ㅊㅌㅎㄴㅇㅁㅎㅁ혼ㅇㄹㅋㄴㅇ
+  
